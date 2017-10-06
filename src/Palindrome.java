@@ -1,18 +1,15 @@
-
 public class Palindrome {
 	
 	public boolean isPalindrome(String s) {
-		StringBuilder reverseString = new StringBuilder();
-		for(int tail = s.length()-1; tail >= 0; tail-- ) {
-			reverseString.append(s.charAt(tail));
+		int tail = s.length()-1;		
+		for (int head = 0; head < (s.length()-1)/2; head++) {
+			char front = s.charAt(head);
+			char back = s.charAt(tail--);
+			if(front != back) {
+				return false;
+			}
 		}
-		String reverse = reverseString.toString();
-		if(s.equals(reverse)) {
-			return true;
-		}
-		return false;
+		return true;
 	}
-	
-	
 
 }
